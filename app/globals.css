@@ -1,26 +1,236 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* paddigns */
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+
+  /* radius */
+  --radius-12: 12px;
+
+
+  /* colors */
+
+  --color-primary: #A9CA27;
+  --color-button-text: #A7E8E8;
+  --color-gradient: #00A3A3;
+
+  --color-text-primary: #15454D;
+  --color-text-secondary: #47362A;
+
+  --color-background: #F0F0F0;
+
+  --color-link: #00A3A3;
+
+
+  /* fonts */
+  --font-clash: 'ClashGrotesk', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-nyght: 'NightSerif', sans-serif;
+
+  --font-14: 14px;
+  --font-16: 16px;
+  --font-18: 18px;
+  --font-20: 20px;
+  --font-36: 36px;
+
+
 }
 
+
+
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --spacing-8: var(--spacing-8);
+  --spacing-10: var(--spacing-10);
+  --spacing-12: var(--spacing-12);
+  --spacing-16: var(--spacing-16);
+  --spacing-20: var(--spacing-20);
+  --spacing-24: var(--spacing-24);
+
+
+  --radius-12: var(--radius-12);
+
+
+  --font-nyght: var(--font-nyght);
+  --font-clash: var(--font-clash);
+  --font-poppins: var(--font-poppins);
+
+
+  --text-14: var(--font-14);
+  --text-16: var(--font-16);
+  --text-18: var(--font-18);
+  --text-20: var(--font-20);
+  --text-36: var(--font-36);
+
+
+
+
+
+  --color-primary: var(--color-primary);
+  --color-gradient: var(--color-gradient);
+  --color-button-text: var(--color-button-text);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-background: var(--color-background);
+
+
+  --color-link: var(--color-link);
+  /* animations */
+  --animate-hero-fade: hero-fade 16s ease-in-out infinite;
+
+
+
+  @keyframes hero-fade {
+    0% {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    6.67% {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    26.67% {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    33.33% {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    100% {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  :root {}
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.stone-shadow {
+  box-shadow: 0px 4px 10px rgba(126, 126, 126, 0.15);
+}
+
+.button-shadow {
+  box-shadow: inset 0px -2px 2px 0.5px #000000, inset 0px 0px 2px 1.5px rgba(255, 255, 255, 0.5);
+}
+
+.stone-stroke {
+  border: 1px solid;
+  border-image-source: linear-gradient(168.76deg, rgba(220, 220, 220, 0.3) -263.64%, rgba(102, 102, 102, 0.3) 365.27%);
+}
+
+.stone-stroke-thick {
+  border: 2px solid;
+  border-image-source: linear-gradient(168.76deg, rgba(220, 220, 220, 0.3) -263.64%, rgba(102, 102, 102, 0.3) 365.27%);
+}
+
+.link {
+  color: var(--color-link);
+  text-decoration: underline;
+
+}
+
+
+
+@font-face {
+  font-family: 'ClashGrotesk';
+  src: url('../fonts/ClashGrotesk-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashGrotesk';
+  src: url('../fonts/ClashGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashGrotesk';
+  src: url('../fonts/ClashGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashGrotesk';
+  src: url('../fonts/ClashGrotesk-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Bold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Medium.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-ExtraLight.ttf') format('ttf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-ExtraBold.ttf') format('ttf');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NightSerif';
+  src: url('../fonts/NyghtSerif-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NightSerif';
+  src: url('../fonts/NyghtSerif-Medium.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NightSerif';
+  src: url('../fonts/NyghtSerif-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
