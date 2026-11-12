@@ -17,8 +17,11 @@
   /* colors */
 
   --color-primary: #A9CA27;
+  --color-dark-bg: #333;
   --color-button-text: #A7E8E8;
   --color-gradient: #00A3A3;
+
+  --color-light-frost: #FCFBFF;
 
   --color-text-primary: #15454D;
   --color-text-secondary: #47362A;
@@ -37,6 +40,7 @@
   --font-16: 16px;
   --font-18: 18px;
   --font-20: 20px;
+  --font-24: 24px;
   --font-36: 36px;
 
 
@@ -65,14 +69,13 @@
   --text-16: var(--font-16);
   --text-18: var(--font-18);
   --text-20: var(--font-20);
+  --text -24: var(--font-24);
   --text-36: var(--font-36);
-
-
-
-
 
   --color-primary: var(--color-primary);
   --color-gradient: var(--color-gradient);
+  --color-dark-bg: var(--color-dark-bg);
+  --color-light-frost: var(--color-light-frost);
   --color-button-text: var(--color-button-text);
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);

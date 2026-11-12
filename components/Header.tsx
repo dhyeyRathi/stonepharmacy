@@ -36,7 +36,7 @@ const navItems = [
 
 const Header = () => {
     return (
-        <nav className=' fixed z-[100] flex stone-shadow bg-white inset-x-0 top-[20px] left-[60px] right-[60px] px-24 py-20 rounded-full 
+        <nav className=' fixed z-[100] flex stone-shadow bg-white inset-x-0 top-[20px] left-[60px] right-[60px] px-24 py-20 rounded-full mx-[60px]
         stone-stroke items-center justify-between'>
             <div className='flex items-center gap-20'>
                 <Logo />

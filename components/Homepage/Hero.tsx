@@ -55,7 +55,7 @@ const Hero = () => {
         }
     ]
     return (
-        <section className=' w-full min-h-screen flex flex-col relative gap-[40px] '>
+        <section className=' w-full flex flex-col relative gap-[40px] '>
             <div className=' relative w-full h-[467px] overflow-hidden rounded-12 flex'>
                 <Swiper className='w-full h-full'
                     slidesPerView={1}
