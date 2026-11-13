@@ -58,7 +58,7 @@ const FAQs = () => {
                         </div>
                         <button className='text-4xl  font-nyght self-start '
                             onClick={() => setActiveQuestion(question.id == activeQuestion ? null : question.id)}>
-                            {activeQuestion == question.id ? '—' : '+'}
+                            {activeQuestion == question.id ? '-' : '+'}
                         </button>
                     </div>
                 ))}
