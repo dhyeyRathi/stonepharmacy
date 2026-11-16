@@ -113,7 +113,7 @@ const Testimonials = () => {
                         alt={`grid-item-1`}
                         width={1000}
                         height={1000}
-                        className='w-full lg:w-[270px] h-full row-span-2 object-cover rounded-xl'
+                        className='w-full h-full row-span-2 object-cover rounded-xl'
                     />
                     <div className='relative overflow-hidden rounded-[8px] w-full'>
                         <Image
@@ -156,7 +156,7 @@ const Testimonials = () => {
                         alt={`grid-item-4`}
                         width={1000}
                         height={1000}
-                        className='w-full lg:w-[270px] h-full row-span-2 object-cover rounded-xl'
+                        className='w-full  h-full row-span-2 object-cover rounded-xl'
                     />
                 </div>
             </div>
