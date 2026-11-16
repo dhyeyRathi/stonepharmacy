@@ -112,9 +112,9 @@ const WhatWeOffer = () => {
                 </div>
                 <div className='w-3/8 h-full items-center relative'>
                     {currentStep && <Image src={currentStep.img} alt={currentStep.title}
-                        width={1000} height={1000} className='h-[320px] w-auto opacity-55 inset-shadow-2xl inset-shadow-white' />}
+                        width={1000} height={1000} className='h-[320px] w-auto opacity-55 inset-shadow-[30px_30px_30px_30px] inset-shadow-white ' />}
                     <div className='absolute bg-radial from-transparent/80  to-white inset-0' />
-                    <div className='absolute bg-radial from-transparent via-white/80 to-white inset-0' />
+                    <div className='absolute bg-radial from-transparent/80 via-white/90 to-white inset-0' />
                     <div className='absolute z-[10] bottom-20 left-5'>
                         <h4 className='text-[24px] font-nyght'>
                             {currentStep?.title}
