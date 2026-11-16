@@ -73,7 +73,6 @@ const WhatWeOffer = () => {
                 What We Offer to Keep You Healthy
             </h2>
 
-            {/* Service Cards */}
             <div className='w-full flex flex-wrap lg:flex-nowrap gap-5 lg:gap-24 justify-center'>
                 {services.map((service) => (
                     <div
@@ -105,9 +104,7 @@ const WhatWeOffer = () => {
                 ))}
             </div>
 
-            {/* Steps Notebook Section */}
             <div className='w-full flex flex-col lg:flex-row gap-6 lg:gap-24 justify-center items-center lg:items-stretch'>
-                {/* Notebook Sheet */}
                 <div className='relative w-full max-w-[447px] lg:max-w-none lg:w-3/8 h-[290px] sm:h-[318px] lg:h-auto flex flex-col justify-start overflow-hidden'>
                     <PaperBg className='absolute inset-0 w-full h-full pointer-events-none' />
                     <div className='relative z-10 flex flex-col pl-[20%] sm:pl-[22%] lg:pl-[100px] pt-[38px] sm:pt-[44px] lg:pt-[60px] lg:gap-[36px]'>
@@ -129,9 +126,7 @@ const WhatWeOffer = () => {
                     </div>
                 </div>
 
-                {/* Step Illustration & Text */}
                 <div className='w-full max-w-[447px] lg:max-w-none lg:w-3/8 border border-button-text/30 lg:border-0 rounded-2xl lg:rounded-none bg-[#F9FBFA] lg:bg-transparent p-4 sm:p-5 lg:p-0 relative flex flex-col lg:block items-center lg:items-stretch overflow-hidden'>
-                    {/* Desktop layout */}
                     <div className='hidden lg:block w-full h-full relative items-center'>
                         {currentStep && (
                             <Image
@@ -154,7 +149,6 @@ const WhatWeOffer = () => {
                         </div>
                     </div>
 
-                    {/* Mobile & Tablet layout (< lg) */}
                     <div className='lg:hidden flex flex-col sm:flex-row items-center gap-4 w-full'>
                         {currentStep && (
                             <div className='w-full sm:w-[140px] h-[130px] sm:h-[110px] relative rounded-xl overflow-hidden shrink-0 bg-white shadow-xs'>

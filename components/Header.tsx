@@ -41,13 +41,12 @@ const Header = () => {
 
     return (
         <header className='fixed z-[100] inset-x-0 top-3 sm:top-4 lg:top-[20px] px-3 sm:px-6 lg:px-[60px] pointer-events-none'>
-            <div className='max-w-[1440px] mx-auto pointer-events-auto'>
+            <div className=' mx-auto pointer-events-auto'>
                 <nav className='w-full stone-shadow bg-white
                     px-4 py-3 sm:px-6 sm:py-4 lg:px-24 lg:py-20
                     rounded-2xl lg:rounded-full
                     stone-stroke flex items-center justify-between relative'>
 
-                    {/* Brand Logo & Desktop Nav */}
                     <div className='flex items-center gap-4 lg:gap-20 shrink-0'>
                         <Link href="/" className="flex items-center" aria-label="Stone Pharmacy Home">
                             <Logo className="w-[115px] sm:w-[135px] lg:w-[151px] h-auto" />
@@ -68,7 +67,6 @@ const Header = () => {
                         </div>
                     </div>
 
-                    {/* Right action icons & Buttons */}
                     <div className='flex items-center gap-2.5 sm:gap-4 lg:gap-24 shrink-0'>
                         <button type="button" aria-label="Search" className="p-1 cursor-pointer hover:opacity-75 transition-opacity">
                             <SearchIcon className='cursor-pointer w-5 h-5 sm:w-6 sm:h-6' />
@@ -84,7 +82,6 @@ const Header = () => {
                             <Button><LocationIcon /> Pharmacy Finder</Button>
                         </div>
 
-                        {/* Hamburger Button for mobile/tablet (< lg) */}
                         <button
                             type="button"
                             className='lg:hidden flex flex-col justify-center items-center w-9 h-9 rounded-lg border border-button-text/40 hover:bg-black/5 cursor-pointer p-1.5 transition-colors'
@@ -99,7 +96,6 @@ const Header = () => {
                     </div>
                 </nav>
 
-                {/* Mobile menu dropdown */}
                 <div
                     className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-[380px] opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'
                         }`}

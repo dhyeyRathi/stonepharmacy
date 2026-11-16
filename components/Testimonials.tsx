@@ -107,7 +107,6 @@ const Testimonials = () => {
                     ))}
                 </Swiper>
 
-                {/* Proof Grid */}
                 <div className='w-full lg:w-1/2 grid grid-cols-2 grid-rows-3 place-items-center grid-flow-col gap-3 sm:gap-4 lg:gap-24 max-w-[500px] lg:max-w-none'>
                     <Image
                         src={`/Images/griditem1.png`}

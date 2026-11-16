@@ -112,7 +112,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Contact Banner */}
                 <ul className='w-full flex flex-col sm:flex-row bg-white/5 p-4 sm:p-5 lg:p-16 justify-center gap-4 sm:gap-6 lg:gap-0 rounded-2xl'>
                     <li className='flex gap-3 lg:gap-16 w-full justify-start sm:justify-center items-center'>
                         <IconHospitalLocation className='grayscale shrink-0' />

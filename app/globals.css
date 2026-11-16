@@ -2,7 +2,6 @@
 
 :root {
 
-  /* paddigns */
   --spacing-8: 8px;
   --spacing-10: 10px;
   --spacing-12: 12px;
@@ -10,11 +9,7 @@
   --spacing-20: 20px;
   --spacing-24: 24px;
 
-  /* radius */
   --radius-12: 12px;
-
-
-  /* colors */
 
   --color-primary: #A9CA27;
   --color-dark-bg: #333;
@@ -30,8 +25,6 @@
 
   --color-link: #00A3A3;
 
-
-  /* fonts */
   --font-clash: 'ClashGrotesk', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
   --font-nyght: 'NightSerif', sans-serif;
@@ -83,7 +76,6 @@
 
 
   --color-link: var(--color-link);
-  /* animations */
   --animate-hero-fade: hero-fade 16s ease-in-out infinite;
 
 
