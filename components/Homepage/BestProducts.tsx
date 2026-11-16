@@ -7,6 +7,7 @@ import { IconOffer } from '../Icons/IconOffer';
 import { GreyStar, HalfYellowStar, YellowStar } from '../Icons/IconStar';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import Button, { ButtonVar2 } from '../Button';
 
 const BestProducts = () => {
     const swiperRef = useRef<SwiperType | null>(null);
@@ -214,11 +215,9 @@ const BestProducts = () => {
                                             </div>
 
                                             <div className='mt-4 flex justify-between items-center w-full text-[14px]'>
-                                                <div className='rounded-xl bg-gradient-to-r from-[#E1E1E1] to-[#ADADAD] p-[1px]'>
-                                                    <button type="button" className='rounded-xl bg-[#FEFEFE] px-[24px] py-[10px] cursor-pointer hover:bg-neutral-50 transition-colors'>
-                                                        Add to Cart
-                                                    </button>
-                                                </div>
+                                                <ButtonVar2>
+                                                    Add to Cart
+                                                </ButtonVar2>
 
                                                 <button type="button" className='underline text-[#107B91] cursor-pointer hover:opacity-80 transition-opacity'>
                                                     More Information
@@ -243,6 +242,7 @@ const BestProducts = () => {
                     <ArrowRight />
                 </button>
             </div>
+            <Button className='text-[18px]'>View All</Button>
         </section>
     );
 };
