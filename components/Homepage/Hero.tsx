@@ -26,7 +26,7 @@ const Hero = () => {
             searchBar: false,
             multiGrad: false,
             markup: "circle",
-            marukupCoords: "260px",
+            marukupCoords: "140px",
             mainText: "Beat The Cough & Flu With Fast, Expert Care",
             subText: "Get personalized treatment and relief quickly with our online consultation — no waiting, just healing.",
             delay: "-12s"
@@ -46,7 +46,7 @@ const Hero = () => {
             searchBar: false,
             multiGrad: false,
             markup: "circle",
-            marukupCoords: "320px",
+            marukupCoords: "200px",
             mainText: "Achieve Your Weight Loss Goals With Our Support",
             subText: "Start your online consultation today and get personalized weight loss guidance, fast and discreetly.",
             delay: "-4s"
@@ -107,7 +107,7 @@ const Hero = () => {
                                                     <RedUnderline className="max-w-full" />
                                                 ) : (
                                                     <RedCircle
-                                                        className='absolute top-[35px] sm:top-[50px] hidden sm:block pointer-events-none'
+                                                        className='absolute top-[-10px] hidden sm:block pointer-events-none'
                                                         style={{ left: banner.marukupCoords }}
                                                     />
                                                 )}
@@ -179,7 +179,7 @@ const Hero = () => {
                                             <RedUnderline className="max-w-full" />
                                         ) : (
                                             <RedCircle
-                                                className='absolute top-[35px] sm:top-[50px] hidden sm:block pointer-events-none'
+                                                className='absolute top-[-10px] hidden sm:block pointer-events-none'
                                                 style={{ left: banner.marukupCoords }}
                                             />
                                         )}
