@@ -1,10 +1,15 @@
-
-
 import { SVGProps } from 'react'
 
-export const PaperBg = (props: SVGProps<SVGSVGElement>) => {
+export const PaperBg = ({ className, ...props }: SVGProps<SVGSVGElement>) => {
     return (
-        <svg width="447" height="318" viewBox="0 0 447 318" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            viewBox="0 0 447 318"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+            preserveAspectRatio="none"
+            {...props}
+        >
             <path d="M4.32268 42.6581C114.008 42.6581 223.988 43.9167 333.652 42.2278L334.95 42.2078C370.666 41.6576 406.288 41.1089 442.019 41.1089" strokeLinecap="round" stroke="#9ECBF0" />
             <path d="M0.5 103.109C148.976 103.109 297.383 106.109 445.841 106.109" strokeLinecap="round" stroke="#9ECBF0" />
             <path d="M2.41133 168.109C149.27 166.973 296.112 166.109 442.974 166.109" strokeLinecap="round" stroke="#9ECBF0" />
@@ -15,7 +20,5 @@ export const PaperBg = (props: SVGProps<SVGSVGElement>) => {
              294.509L59.5374 294.499C59.214 277.901 62.0297 260 63.3318 243.431L62.8334 243.393ZM59.0375 294.509L58.5376 294.52L58.9836 317.413L59.4835 
              317.402L59.9834 317.392L59.5374 294.499L59.0375 294.509Z" fill="#FF4B72" />
         </svg>
-
-
     )
 }

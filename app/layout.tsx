@@ -23,15 +23,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full w-full overflow-x-hidden flex flex-col relative pt-[20px]">
-        <Header></Header>
-        <div className="max-w-[1440px] pt-35 px-[60px] self-center w-full">
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased overflow-x-hidden`}>
+      <body className="min-h-full w-full flex flex-col overflow-x-hidden relative">
+        <Header />
+        <div className="max-w-[1440px] pt-20 sm:pt-24 lg:pt-35 px-4 sm:px-6 lg:px-[60px] self-center w-full">
           {children}
         </div>
         <Footer />
-
       </body>
     </html>
   );

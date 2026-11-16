@@ -114,8 +114,8 @@ const BestProducts = () => {
     ];
 
     return (
-        <section className='flex flex-col gap-[40px] items-center w-full'>
-            <h2 className='font-nyght text-36 relative'>
+        <section className='flex flex-col gap-6 sm:gap-8 lg:gap-[40px] items-center w-full'>
+            <h2 className='font-nyght text-2xl sm:text-3xl lg:text-36 relative text-center leading-tight'>
                 Best Selling Products
             </h2>
             <div className='flex w-full items-center gap-2 sm:gap-4'>
@@ -144,7 +144,7 @@ const BestProducts = () => {
                             setIsBeginning(swiper.isBeginning);
                             setIsEnd(swiper.isEnd);
                         }}
-                        allowTouchMove={false}
+                        allowTouchMove={true}
                         slidesPerView={1}
                         spaceBetween={20}
                         breakpoints={{

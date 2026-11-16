@@ -9,8 +9,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Characterstics from '../Characterstics'
 
-
-
 const Hero = () => {
     const banners = [
         {
@@ -40,7 +38,7 @@ const Hero = () => {
             markup: "underline",
             marukupCoords: "",
             mainText: "Your Health, Our Priority - Safe Travels Start Here  ",
-            subText: "we provide expert advice and tailored care to ensure you stay healthy and protected during your travels. ",
+            subText: "We provide expert advice and tailored care to ensure you stay healthy and protected during your travels.",
             delay: "-8s"
         },
         {
@@ -54,110 +52,171 @@ const Hero = () => {
             delay: "-4s"
         }
     ]
+
     return (
-        <section className=' w-full flex flex-col relative gap-[20px] '>
-            <div className=' relative w-full h-[467px] overflow-hidden rounded-12 flex'>
-                <Swiper className='w-full h-full'
+        <section className='w-full flex flex-col relative gap-6 sm:gap-8 lg:gap-[20px]'>
+            <div className='relative w-full  sm:min-h-[420px] lg:h-[467px] overflow-hidden rounded-12 flex'>
+                <Swiper
+                    className='w-full h-full'
                     slidesPerView={1}
-                    spaceBetween={20}>
+                    spaceBetween={20}
+                >
                     <SwiperSlide className='relative h-full'>
                         <div className='h-full w-full relative'>
                             {banners.map((banner, index: number) => (
-                                <div className='animate-hero-fade absolute inset-0' style={{ animationDelay: banner.delay }} key={index}>
-
-                                    <div className='w-full h-[467px] overflow-hidden rounded-12 relative isolate px-30 py-15 '>
-                                        {banner.multiGrad ?
-                                            <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px]'>
-                                                <Image src={banner.image} alt='Hero Backround' className='w-auto h-full ml-auto' width={1000} height={1000} />
-                                                <WhiteGradient className='left-[-350px] inset-y-0 opacity-98' />
-                                                <SkinGradient className='left-[-200px] top-[-300px] z-2' />
-                                                <BlueGradient className='left-[-200px] bottom-[-350px] z-2 rotate-10' />
-                                                <PurpleGradient className=' blur-[100px] right-[-300px] top-[-300px] opacity-30 ' />
-                                            </div> :
-                                            <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px]'>
-                                                <Image src={banner.image} alt='Hero Backround' className='w-auto h-full ml-auto' width={1000} height={1000} />
-                                                <WhiteGradient className='left-[-350px] top-[-50px]' />
+                                <div
+                                    className='animate-hero-fade absolute inset-0'
+                                    style={{ animationDelay: banner.delay }}
+                                    key={index}
+                                >
+                                    <div className='w-full h-full min-h-[460px] sm:min-h-[420px] lg:h-[467px] overflow-hidden rounded-12 relative isolate px-4 py-5 sm:px-8 sm:py-8 lg:px-30 lg:py-15 flex flex-col justify-center'>
+                                        {banner.multiGrad ? (
+                                            <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
+                                                <Image
+                                                    src={banner.image}
+                                                    alt='Hero Background'
+                                                    className='w-auto h-full ml-auto object-cover object-right'
+                                                    width={1000}
+                                                    height={1000}
+                                                    priority={index === 0}
+                                                />
+                                                <WhiteGradient className='left-[-350px] inset-y-0 opacity-2 lg:opacity-98' />
+                                                <SkinGradient className='left-[-200px] top-[-300px] z-2 opacity-2 lg:opacity-98' />
+                                                <BlueGradient className='left-[-200px] bottom-[-350px] z-2 rotate-10 ' />
+                                                <PurpleGradient className='blur-[100px] right-[-300px] top-[-300px] opacity-30' />
+                                            </div>
+                                        ) : (
+                                            <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
+                                                <Image
+                                                    src={banner.image}
+                                                    alt='Hero Background'
+                                                    className='w-auto h-full ml-auto object-cover object-right'
+                                                    width={1000}
+                                                    height={1000}
+                                                />
+                                                <WhiteGradient className='left-[-350px] top-[-50px] opacity-2 lg:opacity-98' />
                                                 <SkinGradient className='left-[-100px] top-[-200px] z-2' />
-                                                <PurpleGradient className=' blur-[100px] right-[-300px] top-[-300px] opacity-30' />
-                                            </div>}
-                                        <div className='w-[50%] flex flex-col gap-24'>
-                                            <h1 className='font-nyght font-[600] text-36 text-text-primary'>
+                                                <PurpleGradient className='blur-[100px] right-[-300px] top-[-300px] opacity-30' />
+                                            </div>
+                                        )}
+
+                                        <div className='w-full lg:w-[50%] flex flex-col gap-3 sm:gap-4 lg:gap-24 relative z-10 bg-white/80 sm:bg-white/60 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-2xl lg:rounded-none'>
+                                            <h1 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
                                                 {banner.mainText}
-                                                {banner.markup === "underline" ? <RedUnderline /> : <RedCircle className={`absolute top-[50px] `}
-                                                    style={{ left: banner.marukupCoords }} />}
+                                                {banner.markup === "underline" ? (
+                                                    <RedUnderline className="max-w-full" />
+                                                ) : (
+                                                    <RedCircle
+                                                        className='absolute top-[35px] sm:top-[50px] hidden sm:block pointer-events-none'
+                                                        style={{ left: banner.marukupCoords }}
+                                                    />
+                                                )}
                                             </h1>
-                                            <p className='text-18 font-poppins font-[300] text-text-secondary'>
+                                            <p className='text-xs sm:text-sm lg:text-18 font-poppins font-[300] text-text-secondary leading-relaxed'>
                                                 {banner.subText}
                                             </p>
-                                            {banner.searchBar ? <div className='flex flex-col gap-24'>
-                                                <div className='flex border-[1px] border-[#BABABA]  bg-background rounded-[16px]'>
-                                                    <input className='w-full py-10 pr-[4px] pl-12 outline-none font-poppins text-16'
-                                                        placeholder='Search Conditions (e.g stomach ache)' />
-                                                    <Button className='font-[600] '> Search</Button>
+                                            {banner.searchBar ? (
+                                                <div className='flex flex-col gap-2.5 sm:gap-3 lg:gap-24'>
+                                                    <div className='flex border border-[#BABABA] bg-background rounded-[16px] overflow-hidden p-1 sm:p-1.5 lg:p-0'>
+                                                        <input
+                                                            className='w-full py-2 sm:py-2.5 lg:py-10 pr-2 pl-3 sm:pl-4 lg:pl-12 outline-none font-poppins text-xs sm:text-sm lg:text-16 bg-transparent'
+                                                            placeholder='Search Conditions (e.g stomach ache)'
+                                                        />
+                                                        <Button className='font-[600] shrink-0 text-xs sm:text-sm lg:text-16 py-1.5 px-3 sm:px-4 lg:py-10 lg:px-24'>
+                                                            Search
+                                                        </Button>
+                                                    </div>
+                                                    <p className='text-xs sm:text-sm lg:text-16'>
+                                                        or <a className='link cursor-pointer'>view all conditions</a>
+                                                    </p>
                                                 </div>
-                                                <p className='text-16'>or <a className='link cursor-pointer'>view all conditions</a></p>
-                                            </div> :
-                                                <Button className='self-start mt-12 '>Book Now</Button>}
-
-
+                                            ) : (
+                                                <Button className='self-start mt-2 sm:mt-4 lg:mt-12 text-xs sm:text-sm lg:text-16'>
+                                                    Book Now
+                                                </Button>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
-
                     </SwiperSlide>
                     {banners.map((banner, index: number) => (
                         <SwiperSlide key={index} className='h-full'>
-                            <div className='w-full h-[467px] overflow-hidden rounded-12 relative isolate px-30 py-15 ' >
-                                {banner.multiGrad ?
-                                    <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px]'>
-                                        <Image src={banner.image} alt='Hero Backround' className='w-auto h-full ml-auto' width={1000} height={1000} />
+                            <div className='w-full h-full min-h-[460px] sm:min-h-[420px] lg:h-[467px] overflow-hidden rounded-12 relative isolate px-4 py-5 sm:px-8 sm:py-8 lg:px-30 lg:py-15 flex flex-col justify-center'>
+                                {banner.multiGrad ? (
+                                    <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
+                                        <Image
+                                            src={banner.image}
+                                            alt='Hero Background'
+                                            className='w-auto h-full ml-auto object-cover object-right'
+                                            width={1000}
+                                            height={1000}
+                                        />
                                         <WhiteGradient className='left-[-350px] inset-y-0 opacity-98' />
-                                        <SkinGradient className='left-[-200px] top-[-300px] z-2' />
+                                        <SkinGradient className='left-[-200px] top-[-300px] z-2 opacity-2 lg:opacity-98' />
                                         <BlueGradient className='left-[-200px] bottom-[-350px] z-2 rotate-10' />
-                                        <PurpleGradient className=' blur-[100px] right-[-300px] top-[-300px] opacity-30 ' />
-                                    </div> :
-                                    <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px]'>
-                                        <Image src={banner.image} alt='Hero Backround' className='w-auto h-full ml-auto' width={1000} height={1000} />
-                                        <WhiteGradient className='left-[-350px] top-[-50px]' />
+                                        <PurpleGradient className='blur-[100px] right-[-300px] top-[-300px] opacity-30' />
+                                    </div>
+                                ) : (
+                                    <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
+                                        <Image
+                                            src={banner.image}
+                                            alt='Hero Background'
+                                            className='w-auto h-full ml-auto object-cover object-right'
+                                            width={1000}
+                                            height={1000}
+                                        />
+                                        <WhiteGradient className='left-[-350px] top-[-50px] opacity-2 lg:opacity-98' />
                                         <SkinGradient className='left-[-100px] top-[-200px] z-2' />
-                                        <PurpleGradient className=' blur-[100px] right-[-300px] top-[-300px] opacity-30' />
-                                    </div>}
-                                <div className='w-[50%] flex flex-col gap-24'>
-                                    <h1 className='font-nyght font-[600] text-36 text-text-primary'>
+                                        <PurpleGradient className='blur-[100px] right-[-300px] top-[-300px] opacity-30' />
+                                    </div>
+                                )}
+                                <div className='w-full lg:w-[50%] flex flex-col gap-3 sm:gap-4 lg:gap-24 relative z-10 bg-white/80 sm:bg-white/60 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-2xl lg:rounded-none'>
+                                    <h1 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
                                         {banner.mainText}
-                                        {banner.markup === "underline" ? <RedUnderline /> : <RedCircle className={`absolute top-[50px] `}
-                                            style={{ left: banner.marukupCoords }} />}
+                                        {banner.markup === "underline" ? (
+                                            <RedUnderline className="max-w-full" />
+                                        ) : (
+                                            <RedCircle
+                                                className='absolute top-[35px] sm:top-[50px] hidden sm:block pointer-events-none'
+                                                style={{ left: banner.marukupCoords }}
+                                            />
+                                        )}
                                     </h1>
-                                    <p className='text-18 font-poppins font-[300] text-text-secondary'>
+                                    <p className='text-xs sm:text-sm lg:text-18 font-poppins font-[300] text-text-secondary leading-relaxed'>
                                         {banner.subText}
                                     </p>
-                                    {banner.searchBar ? <div className='flex flex-col gap-24'>
-                                        <div className='flex border-[1px] border-[#BABABA]  bg-background rounded-[16px]'>
-                                            <input className='w-full py-10 pr-[4px] pl-12 outline-none font-poppins text-16'
-                                                placeholder='Search Conditions (e.g stomach ache)' />
-                                            <Button className='font-[600] '> Search</Button>
+                                    {banner.searchBar ? (
+                                        <div className='flex flex-col gap-2.5 sm:gap-3 lg:gap-24'>
+                                            <div className='flex border border-[#BABABA] bg-background rounded-[16px] overflow-hidden p-1 sm:p-1.5 lg:p-0'>
+                                                <input
+                                                    className='w-full py-2 sm:py-2.5 lg:py-10 pr-2 pl-3 sm:pl-4 lg:pl-12 outline-none font-poppins text-xs sm:text-sm lg:text-16 bg-transparent'
+                                                    placeholder='Search Conditions (e.g stomach ache)'
+                                                />
+                                                <Button className='font-[600] shrink-0 text-xs sm:text-sm lg:text-16 py-1.5 px-3 sm:px-4 lg:py-10 lg:px-24'>
+                                                    Search
+                                                </Button>
+                                            </div>
+                                            <p className='text-xs sm:text-sm lg:text-16'>
+                                                or <a className='link cursor-pointer'>view all conditions</a>
+                                            </p>
                                         </div>
-                                        <p className='text-16'>or <a className='link cursor-pointer'>view all conditions</a></p>
-                                    </div> :
-                                        <Button className='self-start mt-12 '>Book Now</Button>}
-
-
+                                    ) : (
+                                        <Button className='self-start mt-2 sm:mt-4 lg:mt-12 text-xs sm:text-sm lg:text-16'>
+                                            Book Now
+                                        </Button>
+                                    )}
                                 </div>
                             </div>
                         </SwiperSlide>
-
                     ))}
                 </Swiper>
             </div>
 
             <Characterstics />
-
-
-        </section >
+        </section>
     )
 }
-
 
 export default Hero

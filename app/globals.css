@@ -94,17 +94,17 @@
       pointer-events: none;
     }
 
-    6.67% {
+    1.5% {
       opacity: 1;
       pointer-events: auto;
     }
 
-    26.67% {
+    23.5% {
       opacity: 1;
       pointer-events: auto;
     }
 
-    33.33% {
+    25% {
       opacity: 0;
       pointer-events: none;
     }
