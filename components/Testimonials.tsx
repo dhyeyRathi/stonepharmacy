@@ -74,7 +74,7 @@ const Testimonials = () => {
                             <div className='flex justify-between items-center w-full mt-auto pt-2 flex-wrap gap-3'>
                                 <div className='flex gap-3 lg:gap-[14px] items-center'>
                                     <Image
-                                        className='w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 rounded-full'
+                                        className='w-12 h-12 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[6    0px] rounded-full'
                                         src={testimonial.avatar}
                                         alt='avatar of user'
                                         width={80}
