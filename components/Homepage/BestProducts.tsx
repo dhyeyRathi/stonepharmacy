@@ -8,11 +8,16 @@ import { GreyStar, HalfYellowStar, YellowStar } from '../Icons/IconStar';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Button, { ButtonVar2 } from '../Button';
+import { ProductType } from '@/Types/Product';
 
 const BestProducts = () => {
     const swiperRef = useRef<SwiperType | null>(null);
     const [isBeginning, setIsBeginning] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
+
+    const [cartItems, setCartItems] = useState<ProductType[]>([]);
+
+
 
     const products = [
         {
@@ -27,9 +32,10 @@ const BestProducts = () => {
             unit: "pack",
             rating: 1,
             reviews: 9403,
-            quantity: "2ML",
+            size: "2ML",
             pricePerUnit: "£192.50 per 100ML",
             offer: true,
+            cartQuantity: 0,
         },
         {
             id: 2,
@@ -43,9 +49,10 @@ const BestProducts = () => {
             unit: "pack",
             rating: 2.5,
             reviews: 9403,
-            quantity: "2ML",
+            size: "2ML",
             pricePerUnit: "£192.50 per 100ML",
             offer: true,
+            cartQuantity: 0,
         },
         {
             id: 3,
@@ -59,9 +66,10 @@ const BestProducts = () => {
             unit: "pack",
             rating: 3.5,
             reviews: 9403,
-            quantity: "2ML",
+            size: "2ML",
             pricePerUnit: "£192.50 per 100ML",
             offer: true,
+            cartQuantity: 0,
         },
         {
             id: 4,
@@ -75,9 +83,10 @@ const BestProducts = () => {
             unit: "pack",
             rating: 1,
             reviews: 9403,
-            quantity: "2ML",
+            size: "2ML",
             pricePerUnit: "£192.50 per 100ML",
             offer: true,
+            cartQuantity: 0,
         },
         {
             id: 5,
@@ -91,9 +100,10 @@ const BestProducts = () => {
             unit: "pack",
             rating: 2.5,
             reviews: 9403,
-            quantity: "2ML",
+            size: "2ML",
             pricePerUnit: "£192.50 per 100ML",
             offer: true,
+            cartQuantity: 0,
         },
         {
             id: 6,
@@ -107,11 +117,42 @@ const BestProducts = () => {
             unit: "pack",
             rating: 3.5,
             reviews: 9403,
-            quantity: "2ML",
+            size: "2ML",
             pricePerUnit: "£192.50 per 100ML",
             offer: true,
+            cartQuantity: 0,
         },
     ];
+
+    const addToCart = (product: ProductType) => {
+        setCartItems((prevCart) => {
+            const existing = prevCart.find(
+                (item) => item.id === product.id
+            );
+
+            if (existing) {
+                return prevCart.map((item) =>
+                    item.id === product.id
+                        ? { ...item, cartQuantity: item.cartQuantity + 1 }
+                        : item
+                );
+            }
+
+            return [...prevCart, { ...product, cartQuantity: 1 }];
+        });
+    };
+
+    const removeFromCart = (productId: number) => {
+        setCartItems((prevCart) =>
+            prevCart
+                .map((item) =>
+                    item.id === productId
+                        ? { ...item, cartQuantity: item.cartQuantity - 1 }
+                        : item
+                )
+                .filter((item) => item.cartQuantity > 0)
+        );
+    };
 
     return (
         <section className='flex flex-col gap-6 sm:gap-8 lg:gap-[40px] items-center w-full'>
@@ -163,6 +204,8 @@ const BestProducts = () => {
                             const fullCount = Math.floor(prod.rating);
                             const hasHalf = prod.rating % 1 !== 0;
                             const emptyCount = 5 - fullCount - (hasHalf ? 1 : 0);
+                            const cartItem = cartItems.find((item) => item.id === prod.id);
+                            const quantity = cartItem?.cartQuantity || 0;
                             return (
                                 <SwiperSlide key={prod.id} className='h-auto py-1'>
                                     <div className='flex flex-col h-full border border-button-text rounded-[12px] overflow-hidden bg-white'>
@@ -210,14 +253,22 @@ const BestProducts = () => {
                                                     </span>
                                                 </div>
                                                 <span className='text-16 text-dark-bg/60'>
-                                                    {prod.quantity} | {prod.pricePerUnit}
+                                                    {prod.size} | {prod.pricePerUnit}
                                                 </span>
                                             </div>
 
                                             <div className='mt-4 flex justify-between items-center w-full text-[14px]'>
-                                                <ButtonVar2>
-                                                    Add to Cart
-                                                </ButtonVar2>
+                                                {quantity === 0 ? (
+                                                    <ButtonVar2 onClick={() => addToCart(prod)}>
+                                                        Add to Cart
+                                                    </ButtonVar2>
+                                                ) : (
+                                                    <div className='flex gap-5 items-center'>
+                                                        <ButtonVar2 onClick={() => removeFromCart(prod.id)}>-</ButtonVar2>
+                                                        <span>{quantity}</span>
+                                                        <ButtonVar2 onClick={() => addToCart(prod)}>+</ButtonVar2>
+                                                    </div>
+                                                )}
 
                                                 <button type="button" className='underline text-[#107B91] cursor-pointer hover:opacity-80 transition-opacity'>
                                                     More Information
