@@ -101,7 +101,7 @@ const Hero = () => {
                                         )}
 
                                         <div className='w-full lg:w-[50%] flex flex-col gap-3 sm:gap-4 lg:gap-24 relative z-10 bg-white/80 sm:bg-white/60 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-2xl lg:rounded-none'>
-                                            <h1 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
+                                            {index === 0 ? <h1 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
                                                 {banner.mainText}
                                                 {banner.markup === "underline" ? (
                                                     <RedUnderline className="max-w-full" />
@@ -111,7 +111,17 @@ const Hero = () => {
                                                         style={{ left: banner.marukupCoords }}
                                                     />
                                                 )}
-                                            </h1>
+                                            </h1> : <h2 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
+                                                {banner.mainText}
+                                                {banner.markup === "underline" ? (
+                                                    <RedUnderline className="max-w-full" />
+                                                ) : (
+                                                    <RedCircle
+                                                        className='absolute top-[-10px] hidden sm:block pointer-events-none'
+                                                        style={{ left: banner.marukupCoords }}
+                                                    />
+                                                )}
+                                            </h2>}
                                             <p className='text-xs sm:text-sm lg:text-18 font-poppins font-[300] text-text-secondary leading-relaxed'>
                                                 {banner.subText}
                                             </p>
@@ -173,7 +183,7 @@ const Hero = () => {
                                     </div>
                                 )}
                                 <div className='w-full lg:w-[50%] flex flex-col gap-3 sm:gap-4 lg:gap-24 relative z-10 bg-white/80 sm:bg-white/60 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-2xl lg:rounded-none'>
-                                    <h1 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
+                                    <h2 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
                                         {banner.mainText}
                                         {banner.markup === "underline" ? (
                                             <RedUnderline className="max-w-full" />
@@ -183,7 +193,7 @@ const Hero = () => {
                                                 style={{ left: banner.marukupCoords }}
                                             />
                                         )}
-                                    </h1>
+                                    </h2>
                                     <p className='text-xs sm:text-sm lg:text-18 font-poppins font-[300] text-text-secondary leading-relaxed'>
                                         {banner.subText}
                                     </p>
