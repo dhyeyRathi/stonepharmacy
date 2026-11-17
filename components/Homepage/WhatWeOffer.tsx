@@ -104,7 +104,7 @@ const WhatWeOffer = () => {
                 ))}
             </div>
 
-            <div className='w-full flex flex-col lg:flex-row gap-6 lg:gap-24 justify-center items-center lg:items-stretch'>
+            <div className='w-full flex flex-col lg:flex-row gap-6 lg:gap-30 justify-center items-center lg:items-stretch'>
                 <div className='relative w-full max-w-[447px] lg:max-w-none lg:w-3/8 h-[290px] sm:h-[318px] lg:h-auto flex flex-col justify-start overflow-hidden'>
                     {/* <PaperBg className='absolute inset-0 w-full h-full pointer-events-none' /> */}
                     <ul className='relative z-10 flex flex-col pl-[20%] sm:pl-[22%] lg:pl-[100px] pt-[38px] sm:pt-[44px] lg:pt-[60px] lg:gap-[36px]'>
