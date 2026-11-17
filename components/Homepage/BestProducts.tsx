@@ -155,7 +155,7 @@ const BestProducts = () => {
     };
 
     return (
-        <section className='flex flex-col gap-6 sm:gap-8 lg:gap-[40px] items-center w-full'>
+        <section className='flex flex-col gap-6 sm:gap-8 lg:gap-[40px] items-center w-full relative'>
             <h2 className='font-nyght text-2xl sm:text-3xl lg:text-36 relative text-center leading-tight'>
                 Best Selling Products
             </h2>
@@ -165,7 +165,9 @@ const BestProducts = () => {
                     onClick={() => swiperRef.current?.slidePrev()}
                     disabled={isBeginning}
                     aria-label="Previous products"
-                    className={`w-[38px] h-[38px] border-2 border-button-text rounded-[8px] flex items-center justify-center shrink-0 transition-opacity ${isBeginning ? 'opacity-40 cursor-not-allowed' : 'hover:bg-black/5 cursor-pointer'
+                    className={`w-[38px] h-[38px] bg-white border-2 border-button-text rounded-[8px] flex items-center justify-center shrink-0 transition-opacity 
+                        lg:absolute left-[-75] top-75 z-3
+                        ${isBeginning ? 'opacity-40 cursor-not-allowed' : 'hover:bg-black/5 cursor-pointer'
                         }`}
                 >
                     <ArrowLeft />
@@ -228,11 +230,11 @@ const BestProducts = () => {
                                                     <h3 className='text-[24px] font-[500] font-poppins text-text-primary'>{prod.name}</h3>
                                                 </div>
                                                 <div>
-                                                    <p className='font-poppins text-16 text-dark-bg/60 font-light'>
+                                                    <p className='font-poppins text- text-dark-bg/60 font-light'>
                                                         {prod.description}
                                                     </p>
                                                 </div>
-                                                <div className='flex font-[300] font-poppins text-dark-bg/60 items-center gap-[4px]'>
+                                                <div className='flex font-[300] font-poppins text-dark-bg/60 max-h-[20px] items-center gap-[4px]'>
                                                     {Array.from({ length: fullCount }).map((_, index) => (
                                                         <YellowStar key={`full-${prod.id}-${index}`} />
                                                     ))}
@@ -243,7 +245,7 @@ const BestProducts = () => {
                                                     <span>({prod.reviews})</span>
                                                 </div>
                                                 <div className='flex w-full justify-between items-center flex-wrap gap-1'>
-                                                    <p className='text-[#0F759D] text-[32px] font-poppins'>
+                                                    <p className='text-[#0F759D] text-[24px] font-poppins'>
                                                         £{prod.price}
                                                         <span className='text-20 ml-1 text-dark-bg/60'>/{prod.unit}</span>
                                                         <span className='text-16 ml-2 text-dark-bg/60'>Was <s>£{prod.oldPrice}</s></span>
@@ -252,7 +254,7 @@ const BestProducts = () => {
                                                         {prod.discount}
                                                     </span>
                                                 </div>
-                                                <span className='text-16 text-dark-bg/60'>
+                                                <span className='text-14 text-dark-bg/60'>
                                                     {prod.size} | {prod.pricePerUnit}
                                                 </span>
                                             </div>
@@ -287,7 +289,9 @@ const BestProducts = () => {
                     onClick={() => swiperRef.current?.slideNext()}
                     disabled={isEnd}
                     aria-label="Next products"
-                    className={`w-[38px] h-[38px] border-2 border-button-text rounded-[8px] flex items-center justify-center shrink-0 transition-opacity ${isEnd ? 'opacity-40 cursor-not-allowed' : 'hover:bg-black/5 cursor-pointer'
+                    className={`w-[38px] h-[38px] border-2 border-button-text rounded-[8px] flex items-center justify-center shrink-0 transition-opacity 
+                        lg:absolute top-75 right-[-75] z-3 bg-white
+                        ${isEnd ? 'opacity-40 cursor-not-allowed' : 'hover:bg-black/5 cursor-pointer'
                         }`}
                 >
                     <ArrowRight />

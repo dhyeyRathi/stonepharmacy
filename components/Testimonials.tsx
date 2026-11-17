@@ -67,7 +67,7 @@ const Testimonials = () => {
                             !flex flex-col gap-4 sm:gap-6 lg:gap-[32px] justify-between'
                         >
                             <IconQuotes className="shrink-0" />
-                            <h3 className='font-poppins text-xs sm:text-sm lg:text-[20px] font-[300] text-dark-bg/75 max-w-full lg:max-w-[90%] leading-relaxed'>
+                            <h3 className='font-poppins text-xs sm:text-sm lg:text-[16px] font-[300] text-dark-bg/75 max-w-full lg:max-w-[90%] leading-relaxed'>
                                 {testimonial.quote}
                             </h3>
                             <BlueStars className="shrink-0" />

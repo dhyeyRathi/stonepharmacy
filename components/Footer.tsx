@@ -50,7 +50,7 @@ const Footer = () => {
 
     return (
         <footer className='w-full bg-dark-bg order-last flex justify-center'>
-            <div className='w-full max-w-[1440px] py-8 sm:py-12 lg:py-24 px-5 sm:px-8 lg:px-[60px] flex flex-col gap-6 sm:gap-8 lg:gap-[32px]'>
+            <div className='w-full max-w-[1098px] py-8 sm:py-12 lg:py-24 px-5 sm:px-8 lg:px-[60px] flex flex-col gap-6 sm:gap-8 lg:gap-[32px]'>
                 <div className='w-full flex flex-col lg:flex-row gap-8 lg:gap-0'>
                     <ul className='flex flex-col gap-[12px] text-white text-14 w-full lg:w-1/3'>
                         <li className='pr-0 lg:pr-[32px] flex flex-col gap-[2px]'>

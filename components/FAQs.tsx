@@ -42,19 +42,18 @@ const FAQs = () => {
                 {faqsData.map((question) => (
                     <div
                         key={question.id}
-                        className={`font-poppins pb-3 sm:pb-4 lg:pb-16 p-4 sm:p-5 lg:p-24 w-full rounded-[8px] border-button-text border flex bg-light-frost/60 duration-300 ease-in-out cursor-pointer ${
-                            activeQuestion === question.id ? 'border-primary/40 bg-white shadow-xs' : ''
-                        }`}
+                        className={`font-poppins pb-3 sm:pb-4 lg:pb-16 p-4 sm:p-5 lg:p-24 w-full rounded-[8px]  flex bg-light-frost/60 duration-300 border-2 ease-in-out cursor-pointer 
+                            ${activeQuestion === question.id ? 'border-primary/40 bg-white shadow-xs' : '  border-button-text '
+                            }`}
                         onClick={() => setActiveQuestion(question.id === activeQuestion ? null : question.id)}
                     >
                         <div className='flex flex-col gap-2.5 sm:gap-3 lg:gap-16 w-full justify-center'>
-                            <h3 className='text-base sm:text-lg lg:text-24 text-link font-medium leading-snug'>
+                            <h3 className={`text-base sm:text-lg lg:text-24  ${activeQuestion === question.id ? 'text-[#0F759D]' : 'text-link '} font-medium leading-snug`}>
                                 {question.question}
                             </h3>
                             <div
-                                className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                                    activeQuestion === question.id ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-                                }`}
+                                className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${activeQuestion === question.id ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                                    }`}
                             >
                                 <div className='overflow-hidden'>
                                     <p className='text-xs sm:text-sm lg:text-16 text-dark-bg/75 max-w-full lg:max-w-2/3 leading-relaxed pt-1'>

@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { ButtonVar2 } from '../Button'
-import { PaperBg } from '../Icons/PaperBg'
+import { RedLine, Blueline } from '../Icons/PaperBg'
 import { useEffect, useState } from 'react'
 import Button from '../Button'
 import { IconTick } from '../Icons/IconTick'
@@ -106,24 +106,26 @@ const WhatWeOffer = () => {
 
             <div className='w-full flex flex-col lg:flex-row gap-6 lg:gap-24 justify-center items-center lg:items-stretch'>
                 <div className='relative w-full max-w-[447px] lg:max-w-none lg:w-3/8 h-[290px] sm:h-[318px] lg:h-auto flex flex-col justify-start overflow-hidden'>
-                    <PaperBg className='absolute inset-0 w-full h-full pointer-events-none' />
-                    <div className='relative z-10 flex flex-col pl-[20%] sm:pl-[22%] lg:pl-[100px] pt-[38px] sm:pt-[44px] lg:pt-[60px] lg:gap-[36px]'>
+                    {/* <PaperBg className='absolute inset-0 w-full h-full pointer-events-none' /> */}
+                    <ul className='relative z-10 flex flex-col pl-[20%] sm:pl-[22%] lg:pl-[100px] pt-[38px] sm:pt-[44px] lg:pt-[60px] lg:gap-[36px]'>
+                        <RedLine className='absolute bottom-[-80] left-[60px] scale-120 z-0' />
                         {steps.map((step) => (
-                            <div
+                            <li
                                 key={step.id}
-                                className='h-[56px] sm:h-[62px] lg:h-auto flex items-center'
-                            >
-                                <h4
-                                    className={`text-xs sm:text-base lg:text-18 font-poppins flex items-center gap-2 sm:gap-3 lg:gap-16 transition-all duration-200 ${
-                                        step.id <= stepNo ? "font-[600] text-text-primary" : "text-dark-bg/60 font-[400]"
-                                    }`}
-                                >
-                                    <span>{step.id}. {step.title}</span>
-                                    {step.id <= stepNo && <IconTick className="shrink-0" />}
-                                </h4>
-                            </div>
+                                className='h-[56px] sm:h-[62px] lg:h-auto flex items-center relative'>
+                                <Blueline className='absolute bottom-[-22] inset-x-0 scale-200' />
+                                {step.id === 1 && <Blueline className='absolute top-[-22] inset-x-0 scale-200' />}
+                                <span
+                                    className={`text-xs sm:text-base lg:text-16 font-poppins relative flex items-center gap-2 sm:gap-3 lg:gap-16 transition-all duration-200 ${step.id == stepNo ? "font-[600] text-text-primary" : "text-dark-bg/60 font-[400]"
+                                        }`}>
+
+                                    {step.id}. {step.title}
+
+                                    {step.id == stepNo && <IconTick className="shrink-0" />}
+                                </span>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
 
                 <div className='w-full max-w-[447px] lg:max-w-none lg:w-3/8 border border-button-text/30 lg:border-0 rounded-2xl lg:rounded-none bg-[#F9FBFA] lg:bg-transparent p-4 sm:p-5 lg:p-0 relative flex flex-col lg:block items-center lg:items-stretch overflow-hidden'>
