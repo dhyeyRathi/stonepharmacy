@@ -26,7 +26,7 @@ const Hero = () => {
             searchBar: false,
             multiGrad: false,
             markup: "circle",
-            marukupCoords: "50px",
+            marukupCoords: "140px",
             mainText: "Beat The Cough & Flu With Fast, Expert Care",
             subText: "Get personalized treatment and relief quickly with our online consultation — no waiting, just healing.",
             delay: "-12s"
@@ -46,7 +46,7 @@ const Hero = () => {
             searchBar: false,
             multiGrad: false,
             markup: "circle",
-            marukupCoords: "90px",
+            marukupCoords: "200px",
             mainText: "Achieve Your Weight Loss Goals With Our Support",
             subText: "Start your online consultation today and get personalized weight loss guidance, fast and discreetly.",
             delay: "-4s"
@@ -54,8 +54,9 @@ const Hero = () => {
     ]
 
     return (
-        <section className='w-full flex flex-col relative gap-6 sm:gap-8 lg:gap-[20px]'>
-            <div className='relative w-full  sm:min-h-[420px] lg:h-[367px] overflow-hidden rounded-12 flex'>
+        <section className='flex flex-col w-full lg:w-auto relative gap-6 sm:gap-8 lg:gap-[20px] '>
+            <div className='relative w-full mx-auto xl:w-[1320px] self-center
+             sm:min-h-[420px] lg:h-[467px] overflow-hidden rounded-12 flex'>
                 <Swiper
                     className='w-full h-full'
                     slidesPerView={1}
@@ -69,65 +70,60 @@ const Hero = () => {
                                     style={{ animationDelay: banner.delay }}
                                     key={index}
                                 >
-                                    <div className='w-full h-full  overflow-hidden rounded-12 relative isolate 
-                                    px-4 py-5 sm:px-8 sm:py-8 lg:px-14 lg:py-12 flex flex-col justify-center'>
+                                    <div className='w-full h-full min-h-[460px] sm:min-h-[420px] lg:h-[467px] overflow-hidden rounded-12 relative isolate px-4 py-5 sm:px-8 sm:py-8 lg:px-30 lg:py-15 flex flex-col justify-center'>
                                         {banner.multiGrad ? (
                                             <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                                 <Image
                                                     src={banner.image}
                                                     alt='Hero Background'
-                                                    className='w-auto h-full ml-auto object-cover object-right'
+                                                    className='w-full xl:w-auto h-full ml-auto object-cover object-right'
                                                     width={1000}
                                                     height={1000}
                                                     priority={index === 0}
                                                 />
-                                                <WhiteGradient className='left-[-600px] inset-y-0 opacity-2 lg:opacity-98' />
-                                                <SkinGradient className='left-[-500px] top-[-300px] z-2 opacity-2 lg:opacity-98' />
-                                                <BlueGradient className='left-[-500px] bottom-[-350px] z-2 rotate-10 ' />
-                                                <PurpleGradient className='blur-[100px] right-[-400px] top-[-300px] opacity-30' />
+                                                <WhiteGradient className='left-[-350px] inset-y-0 opacity-2 lg:opacity-98' />
+                                                <SkinGradient className='left-[-200px] top-[-300px] z-2 opacity-2 lg:opacity-98' />
+                                                <BlueGradient className='left-[-200px] bottom-[-350px] z-2 rotate-10 ' />
+                                                <PurpleGradient className='blur-[100px] right-[-300px] top-[-300px] opacity-30' />
                                             </div>
                                         ) : (
                                             <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                                 <Image
                                                     src={banner.image}
                                                     alt='Hero Background'
-                                                    className='w-auto h-full ml-auto object-cover object-right'
+                                                    className='w-full xl:w-auto h-full ml-auto object-cover object-right'
                                                     width={1000}
                                                     height={1000}
                                                 />
-                                                <WhiteGradient className='left-[-600px] top-[-50px] opacity-2 lg:opacity-98' />
-                                                <SkinGradient className='left-[-400px] top-[-200px] z-2' />
+                                                <WhiteGradient className='left-[-350px] top-[-50px] opacity-2 lg:opacity-98' />
+                                                <SkinGradient className='left-[-100px] top-[-200px] z-2' />
                                                 <PurpleGradient className='blur-[100px] right-[-300px] top-[-300px] opacity-30' />
                                             </div>
                                         )}
 
-
-
-                                        <div className='w-full lg:w-[45%] flex flex-col gap-3 sm:gap-4 lg:gap-24 relative z-10 bg-white/80 sm:bg-white/60 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-2xl lg:rounded-none'>
-                                            {index === 0 ?
-
-                                                <h1 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-32 text-text-primary relative leading-tight'>
-                                                    {banner.mainText}
-                                                    {banner.markup === "underline" ? (
-                                                        <RedUnderline className="max-w-full scale-80" />
-                                                    ) : (
-                                                        <RedCircle
-                                                            className='absolute top-[-20px] hidden sm:block pointer-events-none scale-70'
-                                                            style={{ left: banner.marukupCoords }}
-                                                        />
-                                                    )}
-                                                </h1> : <h2 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-32 text-text-primary relative leading-tight'>
-                                                    {banner.mainText}
-                                                    {banner.markup === "underline" ? (
-                                                        <RedUnderline className="max-w-full scale-80" />
-                                                    ) : (
-                                                        <RedCircle
-                                                            className='absolute top-[-20px] hidden sm:block pointer-events-none scale-70'
-                                                            style={{ left: banner.marukupCoords }}
-                                                        />
-                                                    )}
-                                                </h2>}
-                                            <p className='text-xs sm:text-sm lg:text-14 font-poppins font-[300] text-text-secondary leading-relaxed'>
+                                        <div className='w-full lg:w-[50%] flex flex-col gap-3 sm:gap-4 lg:gap-24 relative z-10 bg-white/80 sm:bg-white/60 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-2xl lg:rounded-none'>
+                                            {index === 0 ? <h1 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
+                                                {banner.mainText}
+                                                {banner.markup === "underline" ? (
+                                                    <RedUnderline className="max-w-full" />
+                                                ) : (
+                                                    <RedCircle
+                                                        className='absolute top-[-10px] hidden lg:block pointer-events-none'
+                                                        style={{ left: banner.marukupCoords }}
+                                                    />
+                                                )}
+                                            </h1> : <h2 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
+                                                {banner.mainText}
+                                                {banner.markup === "underline" ? (
+                                                    <RedUnderline className="max-w-full" />
+                                                ) : (
+                                                    <RedCircle
+                                                        className='absolute top-[-10px] hidden lg:block pointer-events-none'
+                                                        style={{ left: banner.marukupCoords }}
+                                                    />
+                                                )}
+                                            </h2>}
+                                            <p className='text-xs sm:text-sm lg:text-18 font-poppins font-[300] text-text-secondary leading-relaxed'>
                                                 {banner.subText}
                                             </p>
                                             {banner.searchBar ? (
@@ -137,7 +133,7 @@ const Hero = () => {
                                                             className='w-full py-2 sm:py-2.5 lg:py-10 pr-2 pl-3 sm:pl-4 lg:pl-12 outline-none font-poppins text-xs sm:text-sm lg:text-16 bg-transparent'
                                                             placeholder='Search Conditions (e.g stomach ache)'
                                                         />
-                                                        <Button className='font-[600] scale-90 text-xs sm:text-sm lg:text-16 py-1.5 px-3 sm:px-4 lg:py-10 lg:px-24'>
+                                                        <Button className='font-[600] shrink-0 text-xs sm:text-sm lg:text-16 py-1.5 px-3 sm:px-4 lg:py-10 lg:px-24'>
                                                             Search
                                                         </Button>
                                                     </div>
@@ -156,67 +152,60 @@ const Hero = () => {
                             ))}
                         </div>
                     </SwiperSlide>
-
-
-
-
-                    {/* number two */}
-
                     {banners.map((banner, index: number) => (
                         <SwiperSlide key={index} className='h-full'>
-                            <div className='w-full h-full overflow-hidden rounded-12 relative isolate 
-                            px-4 py-5 sm:px-8 sm:py-8 lg:px-14 lg:py-12 flex flex-col justify-center'>
+                            <div className='w-full h-full min-h-[460px] sm:min-h-[420px] lg:h-[467px] overflow-hidden rounded-12 relative isolate px-4 py-5 sm:px-8 sm:py-8 lg:px-30 lg:py-15 flex flex-col justify-center'>
                                 {banner.multiGrad ? (
                                     <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                         <Image
                                             src={banner.image}
                                             alt='Hero Background'
-                                            className='w-auto h-full ml-auto object-cover object-right'
+                                            className='w-full xl:w-auto h-full ml-auto object-cover object-right'
                                             width={1000}
                                             height={1000}
                                         />
-                                        <WhiteGradient className='left-[-600px] inset-y-0 opacity-2 lg:opacity-98' />
-                                        <SkinGradient className='left-[-500px] top-[-300px] z-2 opacity-2 lg:opacity-98' />
-                                        <BlueGradient className='left-[-500px] bottom-[-350px] z-2 rotate-10 ' />
-                                        <PurpleGradient className='blur-[100px] right-[-400px] top-[-300px] opacity-30' />
+                                        <WhiteGradient className='left-[-350px] inset-y-0 opacity-2 lg:opacity-98' />
+                                        <SkinGradient className='left-[-200px] top-[-300px] z-2 opacity-2 lg:opacity-98' />
+                                        <BlueGradient className='left-[-200px] bottom-[-350px] z-2 rotate-10 ' />
+                                        <PurpleGradient className='blur-[100px] right-[-300px] top-[-300px] opacity-30' />
                                     </div>
                                 ) : (
                                     <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                         <Image
                                             src={banner.image}
                                             alt='Hero Background'
-                                            className='w-auto h-full ml-auto object-cover object-right'
+                                            className='w-full xl:w-auto h-full ml-auto object-cover object-right'
                                             width={1000}
                                             height={1000}
                                         />
-                                        <WhiteGradient className='left-[-600px] top-[-50px] opacity-2 lg:opacity-98' />
-                                        <SkinGradient className='left-[-400px] top-[-200px] z-2' />
+                                        <WhiteGradient className='left-[-350px] top-[-50px] opacity-2 lg:opacity-98' />
+                                        <SkinGradient className='left-[-100px] top-[-200px] z-2' />
                                         <PurpleGradient className='blur-[100px] right-[-300px] top-[-300px] opacity-30' />
                                     </div>
                                 )}
-                                <div className='w-full lg:w-[45%] flex flex-col gap-3 sm:gap-4 lg:gap-24 relative z-10 bg-white/80 sm:bg-white/60 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-2xl lg:rounded-none'>
-                                    <h2 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-332 text-text-primary relative leading-tight'>
+                                <div className='w-full lg:w-[50%] flex flex-col gap-3 sm:gap-4 lg:gap-24 relative z-10 bg-white/80 sm:bg-white/60 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-2xl lg:rounded-none'>
+                                    <h2 className='font-nyght font-[600] text-xl sm:text-2xl lg:text-36 text-text-primary relative leading-tight'>
                                         {banner.mainText}
                                         {banner.markup === "underline" ? (
-                                            <RedUnderline className="max-w-full scale-80 " />
+                                            <RedUnderline className="max-w-full" />
                                         ) : (
                                             <RedCircle
-                                                className='absolute top-[-20px] hidden sm:block pointer-events-none scale-70'
+                                                className='absolute top-[-10px] hidden lg:block pointer-events-none'
                                                 style={{ left: banner.marukupCoords }}
                                             />
                                         )}
                                     </h2>
-                                    <p className='text-xs sm:text-sm lg:text-14 font-poppins font-[300] text-text-secondary leading-relaxed'>
+                                    <p className='text-xs sm:text-sm lg:text-18 font-poppins font-[300] text-text-secondary leading-relaxed'>
                                         {banner.subText}
                                     </p>
                                     {banner.searchBar ? (
                                         <div className='flex flex-col gap-2.5 sm:gap-3 lg:gap-24'>
                                             <div className='flex border border-[#BABABA] bg-background rounded-[16px] overflow-hidden p-1 sm:p-1.5 lg:p-0'>
                                                 <input
-                                                    className='w-full py-2 ssm:py-2.5 lg:py-10 pr-2 pl-3 sm:pl-4 lg:pl-12 outline-none font-poppins text-xs sm:text-sm lg:text-16 bg-transparent'
+                                                    className='w-full py-2 sm:py-2.5 lg:py-10 pr-2 pl-3 sm:pl-4 lg:pl-12 outline-none font-poppins text-xs sm:text-sm lg:text-16 bg-transparent'
                                                     placeholder='Search Conditions (e.g stomach ache)'
                                                 />
-                                                <Button className='font-[600] scale-90 text-xs sm:text-sm lg:text-16 py-1.5 px-3 sm:px-4 lg:py-10 lg:px-24'>
+                                                <Button className='font-[600] shrink-0 text-xs sm:text-sm lg:text-16 py-1.5 px-3 sm:px-4 lg:py-10 lg:px-24'>
                                                     Search
                                                 </Button>
                                             </div>

@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased overflow-x-hidden`}>
       <body className="min-h-full w-full flex flex-col overflow-x-hidden relative">
         <Header />
-        <div className="max-w-[1098px] pt-20 sm:pt-24 lg:pt-35 px-4 sm:px-6 lg:px-[60px] self-center w-full">
+        <div className="max-w-[1098px] pt-20 sm:pt-[50px] lg:pt-35 px-4 sm:px-6 lg:px-0 self-center w-full">
           {children}
         </div>
         <Footer />

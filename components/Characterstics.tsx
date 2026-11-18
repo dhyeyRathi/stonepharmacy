@@ -5,7 +5,7 @@ import IconShield from './Icons/IconShield'
 
 const Characterstics = () => {
     return (
-        <ul className='w-[200vw] py-16 sticky z-[10] -translate-x-[75vw] bg-button-text/10 font-nyght
+        <ul className='w-full lg:w-[200vw] py-16 sticky z-[10]  lg:m-0 bg-button-text/10 font-nyght
             text-xs sm:text-sm lg:text-16
             flex flex-col sm:flex-row flex-wrap lg:flex-nowrap items-center justify-center 
             gap-3 sm:gap-4 lg:gap-[120px]

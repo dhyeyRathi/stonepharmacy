@@ -41,7 +41,7 @@ const Header = () => {
 
     return (
         <header className='fixed z-[100] inset-x-0 top-3 sm:top-4 lg:top-[20px] px-3 sm:px-6 lg:px-[60px] pointer-events-none'>
-            <div className=' mx-auto pointer-events-auto'>
+            <div className=' max-w-[1440px] mx-auto pointer-events-auto'>
                 <nav className='w-full stone-shadow bg-white
                     px-4 py-3 sm:px-6 sm:py-4 lg:px-24 lg:py-20
                     rounded-2xl lg:rounded-full
