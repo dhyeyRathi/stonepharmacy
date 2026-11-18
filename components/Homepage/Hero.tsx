@@ -55,7 +55,7 @@ const Hero = () => {
 
     return (
         <section className='w-full flex flex-col relative gap-6 sm:gap-8 lg:gap-[20px]'>
-            <div className='relative w-full  sm:min-h-[420px] lg:h-[417px] overflow-hidden rounded-12 flex'>
+            <div className='relative w-full  sm:min-h-[420px] lg:h-[367px] overflow-hidden rounded-12 flex'>
                 <Swiper
                     className='w-full h-full'
                     slidesPerView={1}
@@ -70,7 +70,7 @@ const Hero = () => {
                                     key={index}
                                 >
                                     <div className='w-full h-full  overflow-hidden rounded-12 relative isolate 
-                                    px-4 py-5 sm:px-8 sm:py-8 lg:px-14 lg:py-15 flex flex-col justify-center'>
+                                    px-4 py-5 sm:px-8 sm:py-8 lg:px-14 lg:py-12 flex flex-col justify-center'>
                                         {banner.multiGrad ? (
                                             <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                                 <Image
@@ -165,7 +165,7 @@ const Hero = () => {
                     {banners.map((banner, index: number) => (
                         <SwiperSlide key={index} className='h-full'>
                             <div className='w-full h-full overflow-hidden rounded-12 relative isolate 
-                            px-4 py-5 sm:px-8 sm:py-8 lg:px-14 lg:py-15 flex flex-col justify-center'>
+                            px-4 py-5 sm:px-8 sm:py-8 lg:px-14 lg:py-12 flex flex-col justify-center'>
                                 {banner.multiGrad ? (
                                     <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                         <Image
