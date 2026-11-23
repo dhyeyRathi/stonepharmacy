@@ -7,6 +7,8 @@ import NewsLetter from "@/components/NewsLetter";
 import Testimonials from "@/components/Testimonials";
 import BgGradient from "@/components/ui/Gradients";
 
+export const generateMetadata = createMetadata("Homepage", true);
+
 export default function Home() {
   return (
     <div className="w-full max-w-full flex flex-col items-center justify-center gap-[40px] 

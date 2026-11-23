@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { createMetadata } from "@/components/GetMetaData";
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const generateMetadata = createMetadata("Homepage", true)
+export const metadata: Metadata = {
+  title: {
+    default: "Stone Pharmacy",
+    template: "%s | Stone Pharmacy",
+  },
+  description: "Official store of Stone Pharmacy",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

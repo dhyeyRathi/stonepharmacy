@@ -44,6 +44,7 @@ const META_QUERY = `*[_type == "meta"] {
   "priority": seo.priority
 }`;
 export const getMeta = async () => {
+  "use cache";
   const data = await client.fetch<metaProps[]>(META_QUERY);
 
   return (data ?? [])

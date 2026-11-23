@@ -6,17 +6,28 @@ import { getMeta } from '@/actions/meta';
 interface MetaDataProps {
     PageName?: string
     icon?: boolean
-    slug?: string
     temp?: String
 }
 
 const getMetaData = async ({ PageName, icon }: MetaDataProps) => {
     const meta = await getMeta();
-    const pageMeta = meta?.filter((title) => title.page === PageName)[0];
+    const pageMeta = meta?.find((title) => title.page === PageName);
+
+    if (!pageMeta) {
+        return {
+            title: PageName ? `Stone Pharmacy | ${PageName}` : "Stone Pharmacy",
+            description: "Stone Pharmacy official store and healthcare products",
+            ...(icon && {
+                icons: {
+                    icon: '/favicon.ico'
+                }
+            })
+        }
+    }
 
     const metadata: Metadata = {
-        title: `Stone Pharmacy | ${pageMeta?.title}`,
-        description: pageMeta?.description,
+        title: `Stone Pharmacy | ${pageMeta.title}`,
+        description: pageMeta.description,
         ...(icon && {
             icons: {
                 icon: '/favicon.ico'
@@ -26,13 +37,13 @@ const getMetaData = async ({ PageName, icon }: MetaDataProps) => {
             index: !pageMeta.noIndex,
             follow: !pageMeta.noFollow
         },
-        keywords: pageMeta?.keywords,
+        keywords: pageMeta.keywords,
         alternates: {
-            canonical: `https://stonepharmacy.vercel.app${pageMeta?.canonUrl || '/'}`
+            canonical: `https://stonepharmacy.vercel.app${pageMeta.canonUrl || '/'}`
         },
 
         openGraph: {
-            title: pageMeta?.ogTitle || pageMeta.title,
+            title: pageMeta.ogTitle || pageMeta.title,
             description: pageMeta.ogDescription || pageMeta.description,
             url: pageMeta.ogUrl,
             type: pageMeta.ogType || "website",
@@ -56,7 +67,8 @@ const getMetaData = async ({ PageName, icon }: MetaDataProps) => {
 export default getMetaData
 
 export function createMetadata(PageName: string, icon = false) {
-    return function generateMetadata() {
+    return async function generateMetadata() {
+        "use cache";
         return getMetaData({
             PageName,
             icon,
