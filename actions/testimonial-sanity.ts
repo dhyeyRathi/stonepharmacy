@@ -1,5 +1,3 @@
-"use server"
-
 import { client } from '@/sanity/lib/client'
 
 
@@ -18,6 +16,7 @@ const testimonialQuery = `*[_type == "testimonials"] | order(_createdAt desc) {
     } `;
 
 export async function getTestimonials() {
+    "use cache";
     const testimonials =
         await client.fetch<TestimonialType[]>(testimonialQuery);
 
