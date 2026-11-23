@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { createMetadata } from "@/components/GetMetaData";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,13 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Stone Pharmacy | Homepage",
-  description: "This is the official home page of stone pharmacy",
-  icons: {
-    icon: "favicon.ico"
-  }
-};
+export const generateMetadata = createMetadata("Homepage", true)
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -28,11 +22,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased overflow-x-hidden`}>
       <body className="min-h-full w-full flex flex-col overflow-x-hidden relative">
-        <Header />
-        <div className="max-w-[1098px] pt-20 sm:pt-[50px] lg:pt-35 px-4 sm:px-6 xl:px-0 self-center w-full">
-          {children}
-        </div>
-        <Footer />
+
+        {children}
+
       </body>
     </html>
   );

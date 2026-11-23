@@ -1,5 +1,5 @@
 "use client"
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { ArrowLeft, ArrowRight } from '../Icons/IconArrows';
 import Image from 'next/image';
@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Button, { ButtonVar2 } from '../Button';
 import { ProductType } from '@/Types/Product';
+import { getProducts } from '@/actions/products';
 
 const BestProducts = () => {
     const swiperRef = useRef<SwiperType | null>(null);
@@ -16,113 +17,7 @@ const BestProducts = () => {
     const [isEnd, setIsEnd] = useState(false);
 
     const [cartItems, setCartItems] = useState<ProductType[]>([]);
-
-
-
-    const products = [
-        {
-            id: 1,
-            name: "Plum Cream",
-            category: "Health & Beauty",
-            description: "Effective for 62-82% of men, Works in 25 mins and lasts 4-5 hours.",
-            image: "/Images/plum.webp",
-            price: 10,
-            oldPrice: 19.53,
-            discount: "Save £9.53",
-            unit: "pack",
-            rating: 1,
-            reviews: 9403,
-            size: "2ML",
-            pricePerUnit: "£192.50 per 100ML",
-            offer: true,
-            cartQuantity: 0,
-        },
-        {
-            id: 2,
-            name: "Panadol",
-            category: "Pain Relief",
-            description: "Effective for 62-82% of men, Works in 25 mins and lasts 4-5 hours.",
-            image: "/Images/panadol.webp",
-            price: 6,
-            oldPrice: 19.53,
-            discount: "Save £9.53",
-            unit: "pack",
-            rating: 2.5,
-            reviews: 9403,
-            size: "2ML",
-            pricePerUnit: "£192.50 per 100ML",
-            offer: true,
-            cartQuantity: 0,
-        },
-        {
-            id: 3,
-            name: "Halls",
-            category: "Lozenges",
-            description: "Effective for 62-82% of men, Works in 25 mins and lasts 4-5 hours.",
-            image: "/Images/halls.webp",
-            price: 9,
-            oldPrice: 19.53,
-            discount: "Save £9.53",
-            unit: "pack",
-            rating: 3.5,
-            reviews: 9403,
-            size: "2ML",
-            pricePerUnit: "£192.50 per 100ML",
-            offer: true,
-            cartQuantity: 0,
-        },
-        {
-            id: 4,
-            name: "Plum Cream",
-            category: "Health & Beauty",
-            description: "Effective for 62-82% of men, Works in 25 mins and lasts 4-5 hours.",
-            image: "/Images/plum.webp",
-            price: 10,
-            oldPrice: 19.53,
-            discount: "Save £9.53",
-            unit: "pack",
-            rating: 1,
-            reviews: 9403,
-            size: "2ML",
-            pricePerUnit: "£192.50 per 100ML",
-            offer: true,
-            cartQuantity: 0,
-        },
-        {
-            id: 5,
-            name: "Panadol",
-            category: "Pain Relief",
-            description: "Effective for 62-82% of men, Works in 25 mins and lasts 4-5 hours.",
-            image: "/Images/panadol.webp",
-            price: 6,
-            oldPrice: 19.53,
-            discount: "Save £9.53",
-            unit: "pack",
-            rating: 2.5,
-            reviews: 9403,
-            size: "2ML",
-            pricePerUnit: "£192.50 per 100ML",
-            offer: true,
-            cartQuantity: 0,
-        },
-        {
-            id: 6,
-            name: "Halls",
-            category: "Lozenges",
-            description: "Effective for 62-82% of men, Works in 25 mins and lasts 4-5 hours.",
-            image: "/Images/halls.webp",
-            price: 9,
-            oldPrice: 19.53,
-            discount: "Save £9.53",
-            unit: "pack",
-            rating: 3.5,
-            reviews: 9403,
-            size: "2ML",
-            pricePerUnit: "£192.50 per 100ML",
-            offer: true,
-            cartQuantity: 0,
-        },
-    ];
+    const [products, setProducts] = useState<ProductType[]>([]);
 
     const addToCart = (product: ProductType) => {
         setCartItems((prevCart) => {
@@ -142,7 +37,7 @@ const BestProducts = () => {
         });
     };
 
-    const removeFromCart = (productId: number) => {
+    const removeFromCart = (productId: string | number) => {
         setCartItems((prevCart) =>
             prevCart
                 .map((item) =>
@@ -153,6 +48,16 @@ const BestProducts = () => {
                 .filter((item) => item.cartQuantity > 0)
         );
     };
+
+
+    useEffect(() => {
+        async function getData() {
+            const data = await getProducts();
+            setProducts(data ?? [])
+        }
+
+        getData()
+    }, [])
 
     return (
         <section className='flex flex-col gap-6 sm:gap-8 lg:gap-[40px] items-center w-full relative'>
@@ -212,13 +117,15 @@ const BestProducts = () => {
                                 <SwiperSlide key={prod.id} className='h-auto py-1'>
                                     <div className='flex flex-col h-full border border-button-text rounded-[12px] overflow-hidden bg-white'>
                                         <div className='h-[160px] relative w-full flex justify-center items-center bg-[#D5F9F3] shrink-0'>
-                                            <Image
-                                                src={prod.image}
-                                                width={100}
-                                                height={100}
-                                                className="h-[80%] w-auto object-contain"
-                                                alt={prod.name}
-                                            />
+                                            {prod.image && (
+                                                <Image
+                                                    src={prod.image}
+                                                    width={100}
+                                                    height={100}
+                                                    className="h-[80%] w-auto object-contain"
+                                                    alt={prod.name}
+                                                />
+                                            )}
                                             {prod.offer && (
                                                 <IconOffer className='absolute top-3 left-3' />
                                             )}

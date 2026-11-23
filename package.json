@@ -9,9 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@sanity/image-url": "^2.2.0",
+    "@sanity/vision": "^5.31.2",
     "next": "16.4.5",
+    "next-sanity": "^13.5.1",
+    "nvm": "^0.0.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "sanity": "^5.31.2",
+    "sanity-plugin-seofields": "^1.12.0",
+    "styled-components": "^6.6.0",
     "swiper": "^14.4.0"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
 import FAQs from "@/components/FAQs";
+import { createMetadata } from "@/components/GetMetaData";
 import BestProducts from "@/components/Homepage/BestProducts";
 import Hero from "@/components/Homepage/Hero";
 import WhatWeOffer from "@/components/Homepage/WhatWeOffer";
