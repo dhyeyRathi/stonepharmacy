@@ -26,7 +26,7 @@ const getMetaData = async ({ PageName, icon }: MetaDataProps) => {
     }
 
     const metadata: Metadata = {
-        title: `Stone Pharmacy | ${pageMeta.title}`,
+        title: `${pageMeta.title}`,
         description: pageMeta.description,
         ...(icon && {
             icons: {
