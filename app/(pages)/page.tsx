@@ -6,10 +6,13 @@ import WhatWeOffer from "@/components/Homepage/WhatWeOffer";
 import NewsLetter from "@/components/NewsLetter";
 import Testimonials from "@/components/Testimonials";
 import BgGradient from "@/components/ui/Gradients";
+import { getTestimonials } from "@/actions/testimonial-sanity";
 
 export const generateMetadata = createMetadata("Homepage", true);
 
-export default function Home() {
+export default async function Home() {
+  const testimonials = await getTestimonials();
+
   return (
     <div className="w-full max-w-full flex flex-col items-center justify-center gap-[40px] 
     sm:gap-14 lg:gap-[80px] pb-10 sm:pb-14 lg:pb-[80px]
@@ -18,7 +21,7 @@ export default function Home() {
       <Hero />
       <WhatWeOffer />
       <BestProducts />
-      <Testimonials />
+      <Testimonials testimonials={testimonials} />
       <FAQs />
       <NewsLetter />
     </div>

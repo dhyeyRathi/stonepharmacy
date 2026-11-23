@@ -11,26 +11,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperClass } from 'swiper/types';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { TestimonialType } from '@/actions/testimonial-sanity'
 
-const testimonials = [
-    {
-        quote: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-        name: 'Marina Lewis',
-        avatar: '/Images/avatar.png',
-    },
-    {
-        quote: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-        name: 'Marina Lewis',
-        avatar: '/Images/avatar.png',
-    },
-    {
-        quote: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-        name: 'Marina Lewis',
-        avatar: '/Images/avatar.png',
-    },
-];
+interface TestimonialsProps {
+    testimonials?: TestimonialType[];
+}
 
-const Testimonials = () => {
+const Testimonials = ({ testimonials = [] }: TestimonialsProps) => {
     const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null);
 
     const handlePrev = useCallback(() => {
@@ -40,6 +27,10 @@ const Testimonials = () => {
     const handleNext = useCallback(() => {
         swiperInstance?.slideNext();
     }, [swiperInstance]);
+
+    if (!testimonials || testimonials.length === 0) {
+        return null;
+    }
 
     return (
         <section className='flex flex-col gap-6 sm:gap-8 lg:gap-[40px] items-center w-full relative '>
@@ -55,33 +46,33 @@ const Testimonials = () => {
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={30}
-                    loop={true}
+                    loop={testimonials.length > 1}
                     className="mySwiper w-full lg:w-1/2"
                     onSwiper={setSwiperInstance}
                 >
-                    {testimonials.map((testimonial, index) => (
+                    {testimonials.map((testimonial) => (
                         <SwiperSlide
-                            key={index}
+                            key={testimonial._id}
                             className='h-full w-full rounded-[16px] border-2 border-button-text bg-[#FCFBFF]
                             px-5 py-6 sm:px-[32px] sm:py-[32px] lg:px-[34px] lg:py-[48px]
                             !flex flex-col gap-4 sm:gap-6 lg:gap-[32px] justify-between'
                         >
                             <IconQuotes className="shrink-0" />
                             <h3 className='font-poppins text-xs sm:text-sm lg:text-[16px] font-[300] text-dark-bg/75 max-w-full lg:max-w-[90%] leading-relaxed'>
-                                {testimonial.quote}
+                                {testimonial.body}
                             </h3>
                             <BlueStars className="shrink-0" />
                             <div className='flex justify-between items-center w-full mt-auto pt-2 flex-wrap gap-3'>
                                 <div className='flex gap-3 lg:gap-[14px] items-center'>
                                     <Image
-                                        className='w-12 h-12 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[6    0px] rounded-full'
-                                        src={testimonial.avatar}
-                                        alt='avatar of user'
+                                        className='w-12 h-12 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px] rounded-full'
+                                        src={testimonial.avatarUrl || '/Images/avatar.png'}
+                                        alt={testimonial.author || 'avatar of user'}
                                         width={80}
                                         height={80}
                                     />
                                     <h4 className='font-poppins text-sm sm:text-base lg:text-[20px] font-[500] text-[#00A3A3]'>
-                                        {testimonial.name}
+                                        {testimonial.author}
                                     </h4>
                                 </div>
                                 <div className='flex items-center gap-2'>

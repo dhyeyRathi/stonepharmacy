@@ -7,7 +7,7 @@ export type TestimonialType = {
     _id: string;
     author: string;
     body: string;
-    avatarUrl?: string;
+    avatarUrl: string;
 };
 
 const testimonialQuery = `*[_type == "testimonials"] | order(_createdAt desc) {
