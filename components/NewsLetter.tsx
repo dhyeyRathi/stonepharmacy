@@ -17,7 +17,10 @@ const NewsLetter = () => {
                 </div>
                 <IconStone className='absolute top-[-45px] right-[-45px] hidden sm:block pointer-events-none' />
                 <div className='flex flex-col sm:flex-row gap-3 sm:gap-[8px] items-stretch sm:items-center relative z-10'>
+                    <label htmlFor="newsletter input" className='sr-only'>News Letter</label>
                     <input
+                        id='newsletter input'
+                        name='newsletter input'
                         className='w-full sm:w-[320px] lg:w-[420px] h-[44px] lg:h-full bg-white font-poppins text-xs sm:text-sm lg:text-16 text-dark-bg/75 rounded-[8px] border border-button-text pl-3 sm:pl-4 lg:pl-24 py-2 sm:py-0 outline-none'
                         placeholder='Enter your email address'
                     />

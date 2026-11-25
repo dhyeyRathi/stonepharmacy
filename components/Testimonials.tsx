@@ -50,7 +50,7 @@ const Testimonials = ({ testimonials = [] }: TestimonialsProps) => {
                     className="mySwiper w-full lg:w-1/2"
                     onSwiper={setSwiperInstance}
                 >
-                    {testimonials.map((testimonial) => (
+                    {testimonials.map((testimonial, index) => (
                         <SwiperSlide
                             key={testimonial._id}
                             className='h-full w-full rounded-[16px] border-2 border-button-text bg-[#FCFBFF]
@@ -67,7 +67,7 @@ const Testimonials = ({ testimonials = [] }: TestimonialsProps) => {
                                     <Image
                                         className='w-12 h-12 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px] rounded-full'
                                         src={testimonial.avatarUrl || '/Images/avatar.png'}
-                                        alt={testimonial.author || 'avatar of user'}
+                                        alt={testimonial.author || `avatar-of-user-${index}`}
                                         width={80}
                                         height={80}
                                     />

@@ -74,7 +74,7 @@ const WhatWeOffer = () => {
             </h2>
 
             <div className='w-full flex flex-wrap lg:flex-nowrap gap-5 lg:gap-24 justify-center'>
-                {services.map((service) => (
+                {services.map((service, index: number) => (
                     <div
                         key={service.id}
                         className='group flex flex-col p-5 sm:p-6 lg:p-[24px] w-full sm:w-[calc(50%-12px)] lg:w-[350px] border border-button-text rounded-[16px] gap-4 sm:gap-5 lg:gap-24 hover:shadow-[0px_24px_50px_rgba(0,128,0,0.1),0px_-15px_25px_rgba(236,97,57,0.15)] transition-all duration-300 bg-white'
@@ -83,7 +83,7 @@ const WhatWeOffer = () => {
                             src={service.img}
                             width={1000}
                             height={1000}
-                            alt={service.title}
+                            alt={`${service.title}-${index}`}
                             className='w-full h-[180px] sm:h-[190px] lg:h-[200px] object-cover rounded-xl'
                         />
 
@@ -133,7 +133,7 @@ const WhatWeOffer = () => {
                         {currentStep && (
                             <Image
                                 src={currentStep.img}
-                                alt={currentStep.title}
+                                alt={`${currentStep.title}-0`}
                                 width={1000}
                                 height={1000}
                                 className='h-[320px] w-auto opacity-55 inset-shadow-[30px_30px_30px_30px] inset-shadow-white'

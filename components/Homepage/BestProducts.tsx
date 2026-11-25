@@ -152,11 +152,11 @@ const BestProducts = () => {
                                                     <span>({prod.reviews})</span>
                                                 </div>
                                                 <div className='flex w-full justify-between items-center flex-wrap gap-1'>
-                                                    <p className='text-[#0F759D] text-[24px] font-poppins'>
+                                                    <h4 className='text-[#0F759D] text-[24px] font-poppins'>
                                                         £{prod.price}
                                                         <span className='text-20 ml-1 text-dark-bg/60'>/{prod.unit}</span>
                                                         <span className='text-16 ml-2 text-dark-bg/60'>Was <s>£{prod.oldPrice}</s></span>
-                                                    </p>
+                                                    </h4>
                                                     <span className='flex items-center p-[4px] text-14 bg-[#E8F3F6] text-[#0F759D] rounded-[8px]'>
                                                         {prod.discount}
                                                     </span>

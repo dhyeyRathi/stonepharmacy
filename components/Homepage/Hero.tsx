@@ -75,7 +75,7 @@ const Hero = () => {
                                             <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                                 <Image
                                                     src={banner.image}
-                                                    alt='Hero Background'
+                                                    alt={`Hero-bg-${index}`}
                                                     className='w-full xl:w-auto h-full ml-auto object-cover object-right'
                                                     width={1000}
                                                     height={1000}
@@ -90,7 +90,7 @@ const Hero = () => {
                                             <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                                 <Image
                                                     src={banner.image}
-                                                    alt='Hero Background'
+                                                    alt={`Hero-bg-${index}`}
                                                     className='w-full xl:w-auto h-full ml-auto object-cover object-right'
                                                     width={1000}
                                                     height={1000}
@@ -129,7 +129,10 @@ const Hero = () => {
                                             {banner.searchBar ? (
                                                 <div className='flex flex-col gap-2.5 sm:gap-3 lg:gap-24'>
                                                     <div className='flex border border-[#BABABA] bg-background rounded-[16px] overflow-hidden p-1 sm:p-1.5 lg:p-0'>
+                                                        <label htmlFor="search-condition" className='sr-only'>Search conditions</label>
                                                         <input
+                                                            name='search-condition'
+                                                            id='search-condition'
                                                             className='w-full py-2 sm:py-2.5 lg:py-10 pr-2 pl-3 sm:pl-4 lg:pl-12 outline-none font-poppins text-xs sm:text-sm lg:text-16 bg-transparent'
                                                             placeholder='Search Conditions (e.g stomach ache)'
                                                         />
@@ -159,7 +162,7 @@ const Hero = () => {
                                     <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                         <Image
                                             src={banner.image}
-                                            alt='Hero Background'
+                                            alt={`hero-bg-static-${index}`}
                                             className='w-full xl:w-auto h-full ml-auto object-cover object-right'
                                             width={1000}
                                             height={1000}
@@ -173,7 +176,7 @@ const Hero = () => {
                                     <div className='overflow-hidden absolute inset-0 z-[-1] left-[-100px] pointer-events-none'>
                                         <Image
                                             src={banner.image}
-                                            alt='Hero Background'
+                                            alt={`hero-bg-static-${index}`}
                                             className='w-full xl:w-auto h-full ml-auto object-cover object-right'
                                             width={1000}
                                             height={1000}
@@ -201,7 +204,10 @@ const Hero = () => {
                                     {banner.searchBar ? (
                                         <div className='flex flex-col gap-2.5 sm:gap-3 lg:gap-24'>
                                             <div className='flex border border-[#BABABA] bg-background rounded-[16px] overflow-hidden p-1 sm:p-1.5 lg:p-0'>
+                                                <label htmlFor="search-condition-static" className='sr-only'>Search conditions</label>
                                                 <input
+                                                    id='search-condition-static'
+                                                    name='search-condition-static'
                                                     className='w-full py-2 sm:py-2.5 lg:py-10 pr-2 pl-3 sm:pl-4 lg:pl-12 outline-none font-poppins text-xs sm:text-sm lg:text-16 bg-transparent'
                                                     placeholder='Search Conditions (e.g stomach ache)'
                                                 />
